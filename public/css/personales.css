@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+.formulario {
+  background-color: rgb(74, 196, 253);
+  padding: 30px;
+  margin: auto;
+  width: 40vw;
+}
+
+.formulario p {
+  color: white;
+}
+
+.sub1 {
+  margin-top: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.formulario button[type="reset"]{
+  background-color: blue;
+}
+
+footer {
+  margin-top: 20px;
+}
+
