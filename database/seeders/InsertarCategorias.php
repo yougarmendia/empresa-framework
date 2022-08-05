@@ -26,42 +26,12 @@ class InsertarCategorias extends Seeder
                 'updated_at' => now()
             ],
             [
-                'nombre' => 'Fotografía',
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
                 'nombre' => 'Coleccionables',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
-                'nombre' => 'Conectividad',
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
                 'nombre' => 'Línea blanca',
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'nombre' => 'Automovil',
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'nombre' => 'Consolas',
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'nombre' => 'Audio',
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'nombre' => 'Periféricos',
                 'created_at' => now(),
                 'updated_at' => now()
             ]

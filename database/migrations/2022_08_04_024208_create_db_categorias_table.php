@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSucursalesTable extends Migration
+class CreateDbCategoriasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateSucursalesTable extends Migration
      */
     public function up()
     {
-        Schema::create('sucursales', function (Blueprint $table) {
+        Schema::create('categorias', function (Blueprint $table) {
             $table->id();
-            $table-> string('nombre',100);
-		    $table-> string('direccion',200);
+            $table->string('nombre',100);
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateSucursalesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sucursales');
+        Schema::dropIfExists('categorias');
     }
 }
