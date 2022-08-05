@@ -18,4 +18,8 @@
   </form>
   </p>
 
+  @foreach ($productos as $producto)
+    {{ $producto -> nombre }}
+  @endforeach
+
 @stop

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers\TiendaController;
+use App\Http\Controllers\ProductosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,13 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
-
+/*
 Route::get('/', function () {return view('welcome');});
 Route::get('/login', [TiendaController::class, 'login']);
 Route::get('/crear_producto', [TiendaController::class, 'crear_producto']);
 Route::get('/ver_producto', [TiendaController::class, 'ver_producto']);
 Route::get('/borrar_producto', [TiendaController::class, 'borrar_producto']);
 Route::get('/actualizar_producto', [TiendaController::class, 'actualizar_producto']);
+*/
+
+//Route::get('/ver_producto', [ProductosController::class, 'app\Http\Controllers\ProductosController@index']);
+
+Route::get('/ver_producto', 'App\Http\Controllers\ProductosController@index');
 
