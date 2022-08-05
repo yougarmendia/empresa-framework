@@ -6,29 +6,22 @@
 
 <h1 class="sub1">Crear Producto</h1>
 
-<form class="formulario" action="ejemplo.php" method="get">
-  <p>Código del producto: <input type="text" name="codigo" required size="40"></p>
+<form class="formulario" action="{{  url('/productos')  }}" method="POST">
+
   <p>Nombre del producto: <input type="text" name="nombre" required size="40"></p>
-  <p>Categoría: <select name="sucursal">
-  <option cat="0">...</option>
-  <option cat="1">Cat 1</option>
-  <option cat="2">Cat 2</option>
-  <option cat="3">Cat 3</option>
-  </select></p>
-    <p>Sucursal: <select name="sucursal">
-    <option suc="0">...</option>
-    <option suc="1">Uno</option>
-    <option suc="2">Dos</option>
-    <option suc="3">Tres</option>
-  </select></p>
+
+  <p>Categoría: <select name="categoria">
+  <option value="0">...</option>
+  <option value="1">Software</option>
+  <option value="2">Componentes</option>
+  <option value="3">Coleccionables</option>
+  <option value="4">Línea blanca</option>
+
   <p>Descripción:</p>
-  <textarea name="desc" rows="4" cols="40" placeholder="Descripción del producto"></textarea>
-  <p>Cantidad: <input type="number" name="cant" min="1" required step ="1" >   </p>
-  <p>Precio de venta: <input type="number" name="p_venta" min="1" required step ="1">  </p>
-  <p>
-    <input class="btn btn-primary" type="submit" value="Crear">
-    <input class="btn btn-primary" type="reset" value="Limpiar">
-  </p>
+  <textarea name="descripcion" rows="4" cols="40" placeholder="Descripción del producto"></textarea>
+
+  <p><input class="btn btn-primary" type="submit" value="Insertar"></p>
+
 </form>
 
 @stop

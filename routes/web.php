@@ -26,4 +26,8 @@ Route::get('/actualizar_producto', [TiendaController::class, 'actualizar_product
 //Route::get('/ver_producto', [ProductosController::class, 'app\Http\Controllers\ProductosController@index']);
 
 Route::get('/ver_producto', 'App\Http\Controllers\ProductosController@index');
+Route::get('/crear_producto', 'App\Http\Controllers\ProductosController@crear_producto');
+
+
+Route::resource('/productos', 'App\Http\Controllers\ProductosController');
 
