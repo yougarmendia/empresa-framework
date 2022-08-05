@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Producto;
+use App\Models\Stock;
 
 class ProductosController extends Controller
 {
@@ -22,6 +23,15 @@ class ProductosController extends Controller
         $producto->categoria_id = $request->categoria;
         $producto->descripcion = $request->descripcion;
         $producto->save();
+
+        $stock = new Stock();
+        $stock->producto_id = $producto -> id;
+        $stock->sucursal_id = $request->sucursal;
+        
+        $stock->cantidad = $request -> cantidad;
+        $stock->precio = $request -> precio;
+        $stock->estado = $request -> estado;
+        $stock->save();
 
     }
 
