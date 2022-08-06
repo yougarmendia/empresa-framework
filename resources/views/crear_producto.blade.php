@@ -21,6 +21,7 @@
     <hr>
   </p>
 
+
     <label class="heading">Escoja Sucursales:</label>
     <p><label><input type="checkbox"  name="sucursal" value="1"> El Tecnomago</label></p>
     <p><label><input type="checkbox"  name="sucursal" value="2"> El cable suelto</label></p>
