@@ -18,15 +18,15 @@
   </form>
   </p>
 
-  <!--
-    Que el valor del botón ratio sea la condición para la búsqueda.
-    $producto = Producto::where($id);
-    $request->boton
-  -->
+<h>Lista de resultados</h>
+@if(isset($busqueda))
+  "Se encontraron los siguientes resultados"
+  @foreach ($busqueda as $item_busqueda)
+    {{$item_busqueda -> nombre}}
+  @endforeach
 
-  <!-- @foreach ($productos as $producto)
-    {{ $producto -> nombre }}
-  @endforeach -->
+    
+@endif
 
 
 @stop

@@ -42,7 +42,8 @@ class ProductosController extends Controller
     public function buscar(Request $request){
         //$busqueda = $request -> table, $request->patron;
         $busqueda = Producto::where('nombre', $request -> patron)->get();
-        dd($busqueda);
+        //dd($busqueda);
+        return view('ver_producto',['busqueda'=>$busqueda]);
     }
 
     public function actualizar_producto(){
