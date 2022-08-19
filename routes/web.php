@@ -23,15 +23,19 @@ Route::get('/borrar_producto', [TiendaController::class, 'borrar_producto']);
 Route::get('/actualizar_producto', [TiendaController::class, 'actualizar_producto']);
 */
 
+//Route::post('/crear_producto', 'App\Http\Controllers\ProductosController@crear_producto');
 //Route::get('/ver_producto', [ProductosController::class, 'app\Http\Controllers\ProductosController@index']);
 
 Route::get('/ver_producto', 'App\Http\Controllers\ProductosController@index');
+
 Route::get('/crear_producto', 'App\Http\Controllers\ProductosController@crear_producto');
-//Route::post('/crear_producto', 'App\Http\Controllers\ProductosController@crear_producto');
-
-
-Route::resource('/productos', 'App\Http\Controllers\ProductosController');
+Route::post('/crear_producto', 'App\Http\Controllers\ProductosController@crear_producto');
 
 Route::post('/productos', 'App\Http\Controllers\ProductosController@buscar');
 
+Route::resource('/productos', 'App\Http\Controllers\ProductosController');
 
+
+Route::get('/login', 'App\Http\Controllers\ProductosController@login');
+
+//Route::post('/actualizar_producto', 'App\Http\Controllers\ProductosController@actualizar_producto');

@@ -32,19 +32,33 @@ class ProductosController extends Controller
         $stock->precio = $request -> precio;
         $stock->estado = $request -> estado;
         $stock->save();
-
-
     }
 
     public function crear_producto(){
         return view('crear_producto');
-
     }
+
+
+
 
     public function buscar(Request $request){
         //$busqueda = $request -> table, $request->patron;
         $busqueda = Producto::where('nombre', $request -> patron)->get();
-        dd($busqueda);
+        //dd($busqueda);
+    }
+
+    public function actualizar_producto(){
+    return view('actualizar_producto');
+    }
+
+    public function login(){
+        return view('login');
+    }
+
+
+
+    public function borrar(){
+        return view('borrar_producto');
     }
 
 

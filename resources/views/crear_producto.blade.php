@@ -6,7 +6,7 @@
 
 <h1 class="sub1">Crear Producto</h1>
 
-<form class="formulario" action="{{  url('/productos')  }}" method="POST">
+<form class="formulario" action="{{  url('productos')  }}" method="POST">
 
   <p>Nombre del producto: <input type="text" name="nombre" required size="40"></p>
 
