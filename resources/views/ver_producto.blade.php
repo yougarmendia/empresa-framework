@@ -6,7 +6,7 @@
 
   <h1 class="sub1">Ver Producto</h1>
   <p>
-  <form class="formulario" action="/productos" method="post" >
+  <form class="formulario" action="buscar_productos" method="post" >
     <p>Patrón a consultar: <input type="text" name="patron" class="form-control" required ></p>
     <br>
     <p>Buscar por:</p>

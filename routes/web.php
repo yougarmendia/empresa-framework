@@ -31,10 +31,9 @@ Route::get('/ver_producto', 'App\Http\Controllers\ProductosController@index');
 Route::get('/crear_producto', 'App\Http\Controllers\ProductosController@crear_producto');
 Route::post('/crear_producto', 'App\Http\Controllers\ProductosController@crear_producto');
 
-Route::post('/productos', 'App\Http\Controllers\ProductosController@buscar');
+Route::post('/buscar_productos', 'App\Http\Controllers\ProductosController@buscar');
 
 Route::resource('/productos', 'App\Http\Controllers\ProductosController');
-
 
 Route::get('/login', 'App\Http\Controllers\ProductosController@login');
 
