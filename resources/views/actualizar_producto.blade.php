@@ -4,6 +4,8 @@
 
 @section('contenido')
 
+<!-- Dar de baja -->
+
 <h1 class="sub1">Actualizar Producto</h1>
 <p>
 <form class="formulario" action="ejemplo.php" method="get">

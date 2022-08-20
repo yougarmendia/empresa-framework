@@ -18,20 +18,26 @@ class ProductosController extends Controller
 
 
     public function store(Request $request){
-        
+
+
+
+        /* Producto es el nombre de la tabla (al parecer) */
         $producto = new Producto();
         $producto->nombre = $request->nombre;
         $producto->categoria_id = $request->categoria;
         $producto->descripcion = $request->descripcion;
         $producto->save();
 
-        $stock = new Stock();
-        $stock->producto_id = $producto -> id;
-        $stock->sucursal_id = $request->sucursal;
-        $stock->cantidad = $request -> cantidad;
-        $stock->precio = $request -> precio;
-        $stock->estado = $request -> estado;
-        $stock->save();
+
+
+            $stock = new Stock();
+            $stock->producto_id = $producto -> id;
+            $stock->sucursal_id = $request->sucursal;
+            $stock->cantidad = $request -> cantidad;
+            $stock->precio = $request -> precio;
+            $stock->estado = $request -> estado;
+            $stock->save();
+
     }
 
     public function crear_producto(){

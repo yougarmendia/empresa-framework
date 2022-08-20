@@ -4,6 +4,8 @@
 
 @section('contenido')
 
+<!-- Borrar producto -->
+
 <h1 class="sub1">Borrar/Dar de baja producto </h1>
 <p>
 <form class="formulario" action="ejemplo.php" method="get">
