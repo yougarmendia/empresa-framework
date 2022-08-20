@@ -38,11 +38,11 @@ class ProductosController extends Controller
         return view('crear_producto');
     }
 
-
     public function buscar(Request $request){
-        //$busqueda = $request -> table, $request->patron;
-        $busqueda = Producto::where('nombre', $request -> patron)->get();
-        //dd($busqueda);
+
+
+        $busqueda = Producto::where($request->search, 'LIKE', '%'.$request->patron.'%')->get();
+
         return view('ver_producto',['busqueda'=>$busqueda]);
     }
 
