@@ -14,22 +14,20 @@ use App\Http\Controllers\ProductosController;
 |
 */
 
-/*
-Route::get('/', function () {return view('welcome');});
-Route::get('/login', [TiendaController::class, 'login']);
-Route::get('/crear_producto', [TiendaController::class, 'crear_producto']);
-Route::get('/ver_producto', [TiendaController::class, 'ver_producto']);
-Route::get('/borrar_producto', [TiendaController::class, 'borrar_producto']);
-Route::get('/actualizar_producto', [TiendaController::class, 'actualizar_producto']);
-*/
-
-//Route::post('/crear_producto', 'App\Http\Controllers\ProductosController@crear_producto');
-//Route::get('/ver_producto', [ProductosController::class, 'app\Http\Controllers\ProductosController@index']);
-
 Route::get('/ver_producto', 'App\Http\Controllers\ProductosController@index');
 
 Route::get('/crear_producto', 'App\Http\Controllers\ProductosController@crear_producto');
 Route::post('/crear_producto', 'App\Http\Controllers\ProductosController@crear_producto');
+
+
+
+Route::delete('/producto/{id}', 'App\Http\Controllers\ProductosController@destroy');
+
+
+
+
+
+
 
 Route::post('/buscar_productos', 'App\Http\Controllers\ProductosController@buscar');
 
@@ -37,4 +35,3 @@ Route::resource('/productos', 'App\Http\Controllers\ProductosController');
 
 Route::get('/login', 'App\Http\Controllers\ProductosController@login');
 
-//Route::post('/actualizar_producto', 'App\Http\Controllers\ProductosController@actualizar_producto');

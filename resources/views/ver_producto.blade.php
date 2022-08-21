@@ -10,9 +10,9 @@
     <p>Patrón a consultar: <input type="text" name="patron" class="form-control" required ></p>
     <br>
     <p>Buscar por:</p>
-    <input type="radio" name="search" value="id">Código<br>
-    <input type="radio" name="search" value="nombre">Nombre<br>
-    <input type="radio" name="search" value="sucursal">Sucursal<br>
+    <input type="radio" name="search" value="producto_id">Código<br>
+    <input type="radio" name="search" value="productos.nombrep">Nombre<br>
+    <input type="radio" name="search" value="sucursales.id">Sucursal<br>
     <br>
     <input type="submit" class="btn btn-primary" value="Buscar">
   </form>
@@ -22,18 +22,53 @@
 
 @if(isset($busqueda))
   
-  "Se encontraron los siguientes resultados"<br>
+  Se encontraron los siguientes resultados en la busqueda de {patron}
+
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">#Id</th>
+      <th scope="col">#Id Producto</th>
+      <th scope="col">Nombre Producto</th>
+      <th scope="col">Sucursal</th>
+      <th scope="col">Categoría</th>
+      <th scope="col">Stock</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
 
   @foreach ($busqueda as $item_busqueda)
-    Código: {{$item_busqueda -> id}}<br>
-    Nombre del producto: {{$item_busqueda -> nombre}}<br>
-    Sucursal: {{$item_busqueda -> sucursal_id}}
+    <tr>
+    <td> <button type="button" class="btn btn-primary">Editar/Actualizar</button></td>
+    <th scope="row"> {{$item_busqueda -> id}}</th>
+    <td> {{$item_busqueda -> producto_id}}</td>
+    <td> {{$item_busqueda -> nombrep}}</td>
+    <td> {{$item_busqueda -> nombres}}</td>
+    <td> {{$item_busqueda -> nombre}}</td>
+    <td> {{$item_busqueda -> cantidad}}</td>
+    <td>
+      <form action="{{ url('producto/'.$item_busqueda->producto_id) }}" method="POST">
+      @csrf
+      <!-- {{ method_field('DELETE') }} -->
+      @method('DELETE') 
+      <button type="submit" class="btn btn-danger">Eliminar</button>
+      <!-- <input type="submit" onclick="return confirm('¿Quieres borrar?')" value="Borrar"> -->
+      </form>
+    </td>
+    <!-- <td><button type="submit" class="btn btn-danger" value="{{$item_busqueda -> producto_id}}" >Eliminar</button></td> -->
+    </tr>
   @endforeach
+
+
 
   @else
     "No hay resultados"
     
 @endif
+
+
 
 
 @stop

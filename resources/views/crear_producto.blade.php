@@ -8,7 +8,7 @@
 
 <form class="formulario" action="{{  url('productos')  }}" method="POST">
 
-  <p>Nombre del producto: <input type="text" name="nombre" required size="40"></p>
+<p>Nombre del producto: <input type="text" name="nombrep" required size="40"></p>
 
   <p>
     <hr>
@@ -21,9 +21,9 @@
   </p>
 
   <label class="heading">Escoja Sucursales:</label>
-  <p><label><input type="checkbox" name="sucursal" value="1"> El Tecnomago</label></p>
-  <p><label><input type="checkbox" name="sucursal" value="2"> El cable suelto</label></p>
-  <p><label><input type="checkbox" name="sucursal" value="3"> Rocagramación</label></p>
+  <p><label><input type="checkbox" name="sucursal[]" value="1"> El Tecnomago</label></p>
+  <p><label><input type="checkbox" name="sucursal[]" value="2"> El cable suelto</label></p>
+  <p><label><input type="checkbox" name="sucursal[]" value="3"> Rocagramación</label></p>
 
   <p>Descripción:</p>
   <textarea name="descripcion" rows="4" cols="40" placeholder="Descripción del producto"></textarea>
