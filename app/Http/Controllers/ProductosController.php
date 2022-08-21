@@ -26,28 +26,23 @@ class ProductosController extends Controller
 
         /* Producto es el nombre de la tabla (al parecer) */
         $producto = new Producto();
-        $producto->nombre = $request->nombre;
+        $producto->nombrep = $request->nombrep;
         $producto->categoria_id = $request->categoria;
         $producto->descripcion = $request->descripcion;
         $producto->save();
 
-
-            foreach($_POST['sucursal'] as $value){
-            $stock = new Stock();
-            $stock->producto_id = $producto -> id;
-            //$stock->sucursal_id = $request->sucursal;
-            $stock->sucursal_id = $value;
-            $stock->cantidad = $request -> cantidad;
-            $stock->precio = $request -> precio;
-            $stock->estado = $request -> estado;
-            $stock->save();
-            }
+        foreach($_POST['sucursal'] as $value){
+        $stock = new Stock();
+        $stock->producto_id = $producto -> id;
+        //$stock->sucursal_id = $request->sucursal;
+        $stock->sucursal_id = $value;
+        $stock->cantidad = $request -> cantidad;
+        $stock->precio = $request -> precio;
+        $stock->estado = $request -> estado;
+        $stock->save();
+        }
 
     }
-
-
-
-
 
 
 
@@ -55,6 +50,8 @@ class ProductosController extends Controller
         Stock::destroy($id);
         return view('ver_producto');
     }
+
+
 
 
 
@@ -74,15 +71,15 @@ class ProductosController extends Controller
         ->join('productos', 'stocks.producto_id', '=', 'productos.id')
         ->join('sucursales', 'sucursales.id', '=', 'stocks.sucursal_id')
         ->join('categorias', 'categorias.id', '=', 'productos.categoria_id')
-        ->select('stocks.id', 'stocks.producto_id', 'productos.nombrep', 'sucursales.nombres','categorias.nombre', 'stocks.cantidad')
+        ->select('stocks.id', 'stocks.producto_id', 'productos.nombrep', 'productos.descripcion','sucursales.nombres','categorias.nombre', 'stocks.cantidad')
         ->where($request->search, 'LIKE', $request->patron)
         ->get();
 
         return view('ver_producto',['busqueda'=>$busqueda]);
     }
 
-    public function actualizar_producto(){
-    return view('actualizar_producto');
+    public function actualizar_producto($id){
+        return view('actualizar_producto')->with($id);
     }
 
     public function login(){

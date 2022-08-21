@@ -14,6 +14,8 @@
     <input type="radio" name="search" value="productos.nombrep">Nombre<br>
     <input type="radio" name="search" value="sucursales.id">Sucursal<br>
     <br>
+    
+    
     <input type="submit" class="btn btn-primary" value="Buscar">
   </form>
   </p>
@@ -21,8 +23,8 @@
 <h2>Lista de resultados</h2>
 
 @if(isset($busqueda))
-  
-  Se encontraron los siguientes resultados en la busqueda de {patron}
+
+  Se encontraron los siguientes resultados en la busqueda
 
   <table class="table">
   <thead>
@@ -41,7 +43,17 @@
 
   @foreach ($busqueda as $item_busqueda)
     <tr>
-    <td> <button type="button" class="btn btn-primary">Editar/Actualizar</button></td>
+
+    <td>
+      <form action="{{ url('producto/'.$item_busqueda->producto_id) }}" method="POST">
+        @csrf
+        <input name="nombre" type="hidden" value="{{$item_busqueda -> nombrep}}">
+        <input name="descripcion" type="hidden" value="{{$item_busqueda -> descripcion}}">
+        
+        <button type="submit" class="btn btn-primary">Editar</button>
+      </form>
+    </td>
+
     <th scope="row"> {{$item_busqueda -> id}}</th>
     <td> {{$item_busqueda -> producto_id}}</td>
     <td> {{$item_busqueda -> nombrep}}</td>
@@ -50,14 +62,11 @@
     <td> {{$item_busqueda -> cantidad}}</td>
     <td>
       <form action="{{ url('producto/'.$item_busqueda->producto_id) }}" method="POST">
-      @csrf
-      <!-- {{ method_field('DELETE') }} -->
-      @method('DELETE') 
-      <button type="submit" class="btn btn-danger">Eliminar</button>
-      <!-- <input type="submit" onclick="return confirm('¿Quieres borrar?')" value="Borrar"> -->
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger">Eliminar</button>
       </form>
     </td>
-    <!-- <td><button type="submit" class="btn btn-danger" value="{{$item_busqueda -> producto_id}}" >Eliminar</button></td> -->
     </tr>
   @endforeach
 
