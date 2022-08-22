@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductosController;
+use App\Models\Producto;
 
 
 Route::get('/ver_producto', 'App\Http\Controllers\ProductosController@index');
@@ -18,7 +19,6 @@ Route::resource('/productos', 'App\Http\Controllers\ProductosController');
 
 Route::get('/login', 'App\Http\Controllers\ProductosController@login');
 
-Route::post('/producto/{id}', 'App\Http\Controllers\ProductosController@actualizar_producto');
+Route::post('/producto/{id}', 'App\Http\Controllers\ProductosController@actualizar_producto');  //llegamos a la página "actualizar producto".
 
-Route::put('/producto/{id}', [ProductosController::class, 'actualizar_producto']);
-
+Route::put('/producto/{id}', 'App\Http\Controllers\ProductosController@update');

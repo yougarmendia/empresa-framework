@@ -41,6 +41,8 @@
   </thead>
   <tbody>
 
+<?php //dd($busqueda); ?>
+
   @foreach ($busqueda as $item_busqueda)
     <tr>
 
@@ -49,6 +51,9 @@
         @csrf
         <input name="nombre" type="hidden" value="{{$item_busqueda -> nombrep}}">
         <input name="descripcion" type="hidden" value="{{$item_busqueda -> descripcion}}">
+        <input name="id" type="hidden" value="{{$item_busqueda -> producto_id}}">
+
+        <input name="categoria_id" type="hidden" value="{{$item_busqueda -> categoria_id}}">
         
         <button type="submit" class="btn btn-primary">Editar</button>
       </form>
@@ -76,8 +81,5 @@
     "No hay resultados"
     
 @endif
-
-
-
 
 @stop

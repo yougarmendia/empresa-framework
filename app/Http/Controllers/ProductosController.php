@@ -22,7 +22,6 @@ class ProductosController extends Controller
 
     public function store(Request $request){
 
-        //dd($request);
 
         /* Producto es el nombre de la tabla (al parecer) */
         $producto = new Producto();
@@ -44,21 +43,20 @@ class ProductosController extends Controller
 
     }
 
+    public function update(Request $request){
+        $producto=Producto::findOrFail($request->id);
+        $producto->nombrep = $request->nombre;
+        $producto->categoria_id = $request->categoria_id;
+        $producto->id = $request->id;
+        $producto->descripcion = $request->descripcion;
+        $producto->save();
+    }
 
 
     public function destroy($id){
         Stock::destroy($id);
         return view('ver_producto');
     }
-
-
-
-
-
-
-
-
-
 
 
     public function crear_producto(){
@@ -71,14 +69,14 @@ class ProductosController extends Controller
         ->join('productos', 'stocks.producto_id', '=', 'productos.id')
         ->join('sucursales', 'sucursales.id', '=', 'stocks.sucursal_id')
         ->join('categorias', 'categorias.id', '=', 'productos.categoria_id')
-        ->select('stocks.id', 'stocks.producto_id', 'productos.nombrep', 'productos.descripcion','sucursales.nombres','categorias.nombre', 'stocks.cantidad')
+        ->select('stocks.id', 'stocks.producto_id', 'productos.nombrep', 'productos.descripcion','sucursales.nombres','categorias.nombre', 'productos.categoria_id', 'stocks.cantidad')
         ->where($request->search, 'LIKE', $request->patron)
         ->get();
 
         return view('ver_producto',['busqueda'=>$busqueda]);
     }
 
-    public function actualizar_producto($id){
+    public function actualizar_producto($id){   //Llegamos a la página de actualizar_producto.
         return view('actualizar_producto')->with($id);
     }
 
@@ -89,6 +87,5 @@ class ProductosController extends Controller
     public function borrar(){
         return view('borrar_producto');
     }
-
 
 }
